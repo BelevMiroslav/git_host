@@ -18,8 +18,21 @@ function getRow(firstRow, secondRow) {
     return firstRowCount > secondRowCount ? firstRow : secondRow;
 }
 
-// Отримати рядок з більшою кількістю "a"
 const resultRow = getRow(firstRow, secondRow);
 
-// Відобразити результат на сторінці
 document.getElementById("result").textContent = `Рядок з більшою кількістю літер "a": "${resultRow}"`;
+
+
+function formattedPhone(phone) {
+    const countryCode = phone.slice(0, 3);
+    const operatorCode = phone.slice(3, 6);
+    const firstPart = phone.slice(6, 9);
+    const secondPart = phone.slice(9, 11);
+    const thirdPart = phone.slice(11, 13);
+
+    return `${countryCode} (${operatorCode}) ${firstPart}-${secondPart}-${thirdPart}`;
+}
+const phoneNumber = '+380664567890';
+const formattedNumber = formattedPhone(phoneNumber);
+
+document.getElementById("phone-result").textContent = `Відформатований номер: ${formattedNumber}`;
